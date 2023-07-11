@@ -1,0 +1,49 @@
+{
+  "$schema": "https://arkit.js.org/schema.json",
+  "components": [
+    {
+      "type": "Entry",
+      "patterns": ["*.ts"]
+    },
+    {
+      "type": "Dependency",
+      "patterns": ["node_modules/*"]
+    },
+    {
+      "type": "Component",
+      "patterns": ["**/*.ts"]
+    },
+    {
+      "type": "Controllers",
+      "patterns": ["**/*.controller.*ts"]
+    }
+  ],
+  "excludePatterns": ["test/**", "tests/**", "**/*.test.*", "**/*.spec.*"],
+  "output": [
+    {
+      "path": "./dependency-graph/arkit.svg",
+      "groups": [
+        {
+          "first": true,
+          "components": ["Entry"],
+          "patterns": ["server.ts"]
+        },
+        {
+          "type": "Server",
+          "patterns": ["src/server/**"]
+        },
+        {
+          "type": "Dependencies",
+          "components": ["Dependency"]
+        },
+        {
+          "type": "Controllers",
+          "components": ["Controller"]
+        },
+        {
+          "components": ["Component", "Entry"]
+        }
+      ]
+    }
+  ]
+}

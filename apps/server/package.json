@@ -8,7 +8,10 @@
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
     "prisma:studio:safari": "npx prisma db push && npx prisma studio",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:madge": "npx madge --extensions ts --image dependency-graph/graph.svg ./src",
+    "generate:arkit": "npx arkit",
+    "generate:dep-graph": "pnpm generate:arkit && pnpm generate:madge"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +31,7 @@
     "@types/express": "^4.17.17",
     "@types/node": "^17.0.12",
     "arkit": "^1.6.4",
+    "madge": "^6.1.0",
     "nodemon": "^3.0.1"
   }
 }
