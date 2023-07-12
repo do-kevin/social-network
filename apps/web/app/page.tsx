@@ -1,10 +1,25 @@
-import { Button, Header } from "ui";
+import { UserList } from "../user/UserList";
+import { UserPresenter } from "../user/user.presenter";
 
-export default function Page() {
+async function getData() {
+  const userPresenter = new UserPresenter();
+  let viewModel = [];
+
+  await userPresenter.load((vm) => {
+    viewModel = vm;
+  });
+
+  return viewModel;
+}
+
+export default async function Page() {
+  const viewModel = await getData();
+
   return (
     <>
-      <Header text="Web" />
-      <Button />
+      <article>
+        <UserList viewModel={viewModel} />
+      </article>
     </>
   );
 }
