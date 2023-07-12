@@ -1,23 +1,37 @@
 {
-  "name": "social-netowrk-server",
-  "version": "1.0.0",
+  "name": "social-network-server",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx nodemon",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio",
+    "prisma:studio:safari": "npx prisma db push && npx prisma studio",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:madge": "npx madge --extensions ts --image dependency-graph/graph.svg ./src",
+    "generate:arkit": "npx arkit",
+    "generate:dep-graph": "pnpm generate:arkit && pnpm generate:madge"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.16.2",
+    "chalk": "4.1.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "nanoid": "3.3.5",
     "prisma": "^4.16.2",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
-    "@types/node": "^17.0.12"
+    "@types/node": "^17.0.12",
+    "arkit": "^1.6.4",
+    "madge": "^6.1.0",
+    "nodemon": "^3.0.1"
   }
 }

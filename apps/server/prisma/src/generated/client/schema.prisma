@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  GOD_USER
+  USER
+  SITE_ADMIN
+  COMMUNITY_ADMIN
+  MODERATOR
+}
+
+model User {
+  id          String @id @default(dbgenerated("nanoid()")) @db.VarChar(22) 
+  first_name   String
+  last_name   String
+  middle_name String?
+  email       String  @unique
+  role        Role @default(USER)
+  posts       Post[]
+  created_at  DateTime @default(now())
+}
+
+model Post {
+  id          String @id @default(dbgenerated("nanoid()")) @db.VarChar(22) 
+  published   Boolean? @default(false)
+  title       String
+  content     String?
+  author      User?    @relation(fields: [author_id], references: [id])
+  author_id   String
+  type        String @default("public")
+  upvote      Int @default(1)
+  downvote    Int @default(0)
+}
+
+model Profile {
+  id          String @id @default(dbgenerated("nanoid()")) @db.VarChar(22) 
+  description String?
+  type        String
+}

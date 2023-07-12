@@ -1,0 +1,5 @@
+{
+  "fontSize": "16ch",
+  "includeNpm": true,
+  "layout": "dot"
+}
