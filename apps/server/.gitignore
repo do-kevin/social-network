@@ -4,4 +4,4 @@ node_modules
 arkit.svg
 graph.svg
 
-prisma/generated/client/**/*
+prisma/src/generated/client/**/*

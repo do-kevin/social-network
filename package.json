@@ -9,11 +9,15 @@
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0",
+  "packageManager": "yarn@1.19.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "name": "social-network",
   "version": "0.0.0",
   "author": {

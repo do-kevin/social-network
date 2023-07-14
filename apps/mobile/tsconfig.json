@@ -1,8 +1,6 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+    "strict": true
+  }
 }

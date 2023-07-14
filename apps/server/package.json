@@ -1,5 +1,5 @@
 {
-  "name": "social-network-server",
+  "name": "server",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate:madge": "npx madge --extensions ts --image dependency-graph/graph.svg ./src",
     "generate:arkit": "npx arkit",
-    "generate:dep-graph": "pnpm generate:arkit && pnpm generate:madge"
+    "generate:dep-graph": "yarn generate:arkit && yarn run generate:madge"
   },
   "keywords": [],
   "author": "",
