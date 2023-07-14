@@ -1,4 +1,4 @@
-import { UserList } from "react-ui";
+import { UserList } from "react-ui/user/UserList";
 import { UserPresenter } from "shared/user/user.presenter";
 
 async function getData() {
