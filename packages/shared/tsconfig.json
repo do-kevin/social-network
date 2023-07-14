@@ -1,5 +1,9 @@
 {
   "extends": "tsconfig/shared.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "exclude": ["dist", "build"]
 }

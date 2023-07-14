@@ -24,11 +24,9 @@ class HttpGateway {
         adapter: require("axios/lib/adapters/http"),
       });
 
-      console.log(responseDto.data);
-
       return responseDto.data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

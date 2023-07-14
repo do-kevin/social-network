@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { UserPresenter } from "../../../../../packages/shared/user/user.presenter";
+  import { UserPresenter } from "shared/user/user.presenter";
 
   const userPresenter = new UserPresenter();
   let viewModel = [];
