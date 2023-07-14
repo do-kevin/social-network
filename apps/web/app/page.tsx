@@ -1,5 +1,5 @@
-import { UserList } from "../user/UserList";
-import { UserPresenter } from "../user/user.presenter";
+import { UserList } from "react-ui";
+import { UserPresenter } from "shared/user/user.presenter";
 
 async function getData() {
   const userPresenter = new UserPresenter();

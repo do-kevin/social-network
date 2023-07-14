@@ -25,6 +25,8 @@ export class UserController {
     try {
       const usersDto = await this.prisma.user.findMany();
 
+      console.log(usersDto);
+
       return res.json(usersDto);
     } catch (error) {
       console.error(error);
