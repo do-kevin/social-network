@@ -1,3 +1,5 @@
+import axios from "axios";
+
 interface RequestInitWithNext extends RequestInit {
   next?:
     | {
@@ -16,30 +18,30 @@ class HttpGateway {
     this.apiURL = process.env.API_SERVER_URL || `http://localhost:8000`;
   }
 
-  get = async (
-    path: string,
-    options: RequestInitWithNext = {
-      next: {
-        revalidate: 60,
-      },
+  get = async (path: string, _options: RequestInitWithNext) => {
+    try {
+      const responseDto = await axios.get(this.apiURL + path, {
+        adapter: require("axios/lib/adapters/http"),
+      });
+
+      console.log(responseDto.data);
+
+      return responseDto.data;
+    } catch (error) {
+      console.log(error);
     }
-  ) => {
-    let responseDto = await fetch(this.apiURL + path, options);
-    responseDto = await responseDto.json();
-    console.log("dto: ", responseDto);
-    return responseDto;
   };
 
   post = async (path: string, requestDto: unknown) => {
-    let responseDto = await fetch(this.apiURL + path, {
+    const responseDto = await fetch(this.apiURL + path, {
       method: "POST",
       body: JSON.stringify(requestDto),
       headers: this.headers,
     });
 
-    responseDto = await responseDto.json();
+    const dto = await responseDto.json();
 
-    return responseDto;
+    return dto;
   };
 
   update = async (path: string, requestDto: unknown) => {
@@ -49,9 +51,9 @@ class HttpGateway {
       headers: this.headers,
     });
 
-    responseDto = await responseDto.json();
+    const dto = await responseDto.json();
 
-    return responseDto;
+    return dto;
   };
 
   delete = async (path: string) => {
@@ -60,9 +62,9 @@ class HttpGateway {
       headers: this.headers,
     });
 
-    responseDto = await responseDto.json();
+    const dto = await responseDto.json();
 
-    return responseDto;
+    return dto;
   };
 }
 
